@@ -7,5 +7,6 @@ const admin = new TelegramBot(dataBot.adminBotToken, { polling: true });
 
 export { admin };
 
+//to chek git
 sendInfo();
 readAndLogMessages();
