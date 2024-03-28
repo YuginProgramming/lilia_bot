@@ -26,5 +26,5 @@ const writeMessage = async (message) => {
     }
 };
 
-const exampleMessage = "Игорь молодец";
-writeMessage(exampleMessage);
+// const exampleMessage = "Игорь молодец";
+// writeMessage(exampleMessage);
