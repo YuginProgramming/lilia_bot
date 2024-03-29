@@ -1,7 +1,7 @@
 import { admin } from './app.js';
 import { dataBot } from './values.js';
 import { getData } from './filter.js';
-import { readAndLogMessages } from './readMessage.js'
+import { readMessages } from './readMessage.js'
 
 export const sendInfo = () => {
     admin.on('message', async (msg) => {
@@ -16,7 +16,7 @@ export const sendInfo = () => {
                     const message = row.join('\n');
                     await admin.sendMessage(dataBot.channelId, message);
                 }
-                readAndLogMessages();
+                readMessages();
             } catch (error) {
                 console.error("Error fetching data from Google Sheet:", error);
             }

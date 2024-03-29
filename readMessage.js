@@ -2,7 +2,7 @@ import { admin } from './app.js';
 import { dataBot, ranges } from './values.js';
 import { writeGoogle, readGoogle } from './crud.js';
 
-export const readAndLogMessages = () => {
+export const readMessages = () => {
     admin.on('message', async (msg) => {
         const chatId = msg.chat.id;
         const messageText = msg.text;
