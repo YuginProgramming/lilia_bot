@@ -2,7 +2,7 @@ import { admin } from './app.js';
 import { dataBot, ranges } from './values.js';
 import { writeGoogle, readGoogle } from './crud.js';
 
-export const readAndLogMessages =  () => {
+export const readAndLogMessages = () => {
     admin.on('message', async (msg) => {
         const chatId = msg.chat.id;
         const messageText = msg.text;
@@ -10,7 +10,11 @@ export const readAndLogMessages =  () => {
         if (msg.reply_to_message) {
             const replyMessageId = msg.reply_to_message.message_id;
             const replyMessageText = msg.reply_to_message.text;
-            //await writeGoogle(ranges.replyStatusCell(lotNumber), [['TRUE']]);
+            const messageIdValues = await readGoogle(ranges.messageIdColumn);
+            const lotNumber = messageIdValues.findIndex(value => parseInt(value) === replyMessageId);
+
+            console.log(lotNumber);
+            await writeGoogle(ranges.replyStatusCell(lotNumber + 1), [['TRUE']]);
 
             const statusValues = await readGoogle(ranges.contentColumn);
             const pendingLots = statusValues
@@ -25,6 +29,5 @@ export const readAndLogMessages =  () => {
         }
 
         console.log(`Received message from channel ${chatId}: ${messageText}`);
-        
     });
 };
