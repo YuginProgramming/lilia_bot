@@ -15,6 +15,7 @@ export const readMessages = () => {
 
             console.log(lotNumber);
             await writeGoogle(ranges.replyStatusCell(lotNumber + 1), [['TRUE']]);
+            await writeGoogle(ranges.replyAnswerColumn(lotNumber + 1), [[messageText]]);
 
             const statusValues = await readGoogle(ranges.contentColumn);
             const pendingLots = statusValues
@@ -24,10 +25,6 @@ export const readMessages = () => {
             console.log('pendingLots:', pendingLots);
 
             console.log(`Received a reply to message ID ${replyMessageId}: "${replyMessageText}"`);
-        } else {
-            console.log('Received an independent message');
-        }
-
-        console.log(`Received message from channel ${chatId}: ${messageText}`);
+        } 
     });
 };
