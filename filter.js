@@ -2,7 +2,7 @@ import { getSpreadsheetData } from "./filedata.js";
 import { dataBot } from './values.js';
 
 const spreadsheetId = dataBot.googleSheetId;
-const sheetName = "lilia";
+const sheetName = "questions";
 
 const getData = async (spreadsheetId, sheetName) => {
     const allData = await getSpreadsheetData(spreadsheetId, sheetName);

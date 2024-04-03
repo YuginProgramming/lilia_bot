@@ -8,7 +8,7 @@ export const sendInfo = () => {
         const chatId = msg.chat.id;
         if (msg.text == 'send') {
             try {
-                const info = await getData(dataBot.googleSheetId, 'lilia');
+                const info = await getData(dataBot.googleSheetId, 'questions');
                 
                 // Start the iteration from the second element of the info array
                 for (let i = 1; i < info.length; i++) {
