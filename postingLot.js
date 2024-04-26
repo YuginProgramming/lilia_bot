@@ -4,7 +4,7 @@ import { writeGoogle, readGoogle } from './crud.js';
 
 const getLotContentByID = async (lotNumber) => {
     const content = await readGoogle(ranges.postContentLine(lotNumber));
-    const message = content[4];
+    const message = content[5];
     return message;
 };
 export const autoPosting = async () => {
